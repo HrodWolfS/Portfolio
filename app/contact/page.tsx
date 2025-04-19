@@ -1,44 +1,73 @@
-"use client"
+"use client";
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { useForm } from 'react-hook-form'
-import { Send, Copy, Linkedin, Github, Twitter } from 'lucide-react'
-import { toast } from 'sonner'
-import { ParticlesBackground } from '@/components/cv/particles-background'
+import { ParticlesBackground } from "@/components/cv/particles-background";
+import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
+import { Copy, Github, Linkedin, Send } from "lucide-react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 interface ContactForm {
-  name: string
-  email: string
-  message: string
+  name: string;
+  email: string;
+  message: string;
 }
 
 export default function Contact() {
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<ContactForm>()
-  const [previewMode, setPreviewMode] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<ContactForm>();
+  const [previewMode, setPreviewMode] = useState(false);
 
   const onSubmit = async (data: ContactForm) => {
+    // Afficher un toast de chargement
+    const loadingToast = toast.loading("Envoi en cours...");
+
     try {
-      // Simuler l'envoi
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      toast.success('Message envoyé avec succès!')
-      
-      // Reset form
-      // form.reset()
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        message: data.message,
+      };
+
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
+
+      // Supprimer le toast de chargement et afficher le succès
+      toast.dismiss(loadingToast);
+      toast.success("Message envoyé avec succès! 🎉", {
+        duration: 3000,
+        position: "bottom-right",
+      });
+
+      reset();
     } catch (error) {
-      toast.error("Une erreur s'est produite")
+      // Supprimer le toast de chargement et afficher l'erreur
+      toast.dismiss(loadingToast);
+      toast.error("Une erreur s'est produite lors de l'envoi 😕", {
+        duration: 3000,
+        position: "bottom-right",
+      });
     }
-  }
+  };
 
   const copyEmail = () => {
-    navigator.clipboard.writeText('contact@example.com')
-    toast.success('Email copié!')
-  }
+    navigator.clipboard.writeText("stempfel.rodolphe@gmail.com");
+    toast.success("Email copié!");
+  };
 
   return (
     <div className="min-h-screen w-full relative">
       <ParticlesBackground />
-      
+
       <div className="pt-32 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
           {/* En-tête */}
@@ -50,7 +79,10 @@ export default function Contact() {
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Parlons de votre
-              <span className="text-[rgb(var(--accent-neon))] neon-glow"> projet</span>
+              <span className="text-[rgb(var(--accent-neon))] neon-glow">
+                {" "}
+                projet
+              </span>
             </h1>
             <p className="text-lg text-gray-400">
               Une idée en tête ? N'hésitez pas à me contacter pour en discuter.
@@ -70,12 +102,14 @@ export default function Contact() {
                   <label className="text-sm font-medium">Nom</label>
                   <input
                     type="text"
-                    {...register('name', { required: 'Le nom est requis' })}
+                    {...register("name", { required: "Le nom est requis" })}
                     className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-xl focus:outline-none focus:border-[rgb(var(--accent-neon))] transition-colors"
                     placeholder="Votre nom"
                   />
                   {errors.name && (
-                    <span className="text-red-500 text-sm">{errors.name.message}</span>
+                    <span className="text-red-500 text-sm">
+                      {errors.name.message}
+                    </span>
                   )}
                 </div>
 
@@ -83,31 +117,37 @@ export default function Contact() {
                   <label className="text-sm font-medium">Email</label>
                   <input
                     type="email"
-                    {...register('email', {
+                    {...register("email", {
                       required: "L'email est requis",
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'Email invalide'
-                      }
+                        message: "Email invalide",
+                      },
                     })}
                     className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-xl focus:outline-none focus:border-[rgb(var(--accent-neon))] transition-colors"
                     placeholder="votre@email.com"
                   />
                   {errors.email && (
-                    <span className="text-red-500 text-sm">{errors.email.message}</span>
+                    <span className="text-red-500 text-sm">
+                      {errors.email.message}
+                    </span>
                   )}
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Message</label>
                   <textarea
-                    {...register('message', { required: 'Le message est requis' })}
+                    {...register("message", {
+                      required: "Le message est requis",
+                    })}
                     rows={5}
                     className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-xl focus:outline-none focus:border-[rgb(var(--accent-neon))] transition-colors resize-none"
                     placeholder="Votre message..."
                   />
                   {errors.message && (
-                    <span className="text-red-500 text-sm">{errors.message.message}</span>
+                    <span className="text-red-500 text-sm">
+                      {errors.message.message}
+                    </span>
                   )}
                 </div>
 
@@ -143,7 +183,7 @@ export default function Contact() {
                   className="flex items-center gap-2 text-[rgb(var(--accent-neon))] hover:underline"
                 >
                   <Copy size={16} />
-                  contact@example.com
+                  stempfel.rodolphe@gmail.com
                 </button>
               </div>
 
@@ -152,7 +192,7 @@ export default function Contact() {
                 <h3 className="text-lg font-semibold mb-4">Réseaux sociaux</h3>
                 <div className="space-y-4">
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/in/rodolphe-s-ba6a7a232"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
@@ -161,22 +201,13 @@ export default function Contact() {
                     LinkedIn
                   </a>
                   <a
-                    href="#"
+                    href="https://github.com/HrodWolfS"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
                   >
                     <Github size={20} />
                     GitHub
-                  </a>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
-                  >
-                    <Twitter size={20} />
-                    Twitter
                   </a>
                 </div>
               </div>
@@ -185,7 +216,7 @@ export default function Contact() {
               <div className="glassmorphism p-6 rounded-xl">
                 <h3 className="text-lg font-semibold mb-4">Localisation</h3>
                 <p className="text-gray-400">
-                  Paris, France
+                  Lille, France
                   <br />
                   Disponible pour des projets à distance
                 </p>
@@ -195,5 +226,5 @@ export default function Contact() {
         </div>
       </div>
     </div>
-  )
+  );
 }

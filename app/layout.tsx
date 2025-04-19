@@ -1,12 +1,13 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { ThemeProvider } from '@/components/theme-provider';
-import { Navigation } from '@/components/navigation';
-import { CustomCursor } from '@/components/custom-cursor';
+import { CustomCursor } from "@/components/custom-cursor";
+import { Navigation } from "@/components/navigation";
+import { ThemeProvider } from "@/components/theme-provider";
+import type { Metadata } from "next";
+import { Toaster } from "sonner";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Creative Developer',
-  description: 'Portfolio minimaliste et futuriste',
+  title: "Portfolio | Creative Developer",
+  description: "Portfolio minimaliste et futuriste",
 };
 
 export default function RootLayout({
@@ -29,6 +30,7 @@ export default function RootLayout({
             <main className="min-h-screen">{children}</main>
           </div>
         </ThemeProvider>
+        <Toaster richColors />
       </body>
     </html>
   );

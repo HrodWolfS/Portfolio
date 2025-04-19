@@ -1,12 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { Code2, GraduationCap, Briefcase, Award } from "lucide-react";
-import { cvData } from "./data";
+import { ParticlesBackground } from "@/components/cv/particles-background";
+import { DownloadCVButton } from "@/components/cv/pdf/download-cv-button";
 import { SkillBar } from "@/components/cv/skill-bar";
 import { TimelineItem } from "@/components/cv/timeline-item";
-import { ParticlesBackground } from "@/components/cv/particles-background";
+import { motion } from "framer-motion";
+import { Award, Briefcase, Code2, GraduationCap } from "lucide-react";
+import { useInView } from "react-intersection-observer";
+import { cvData } from "./data";
 
 export default function CV() {
   const { ref: headerRef, inView: headerInView } = useInView({
@@ -62,12 +63,7 @@ export default function CV() {
                   >
                     GitHub
                   </a>
-                  <a
-                    href="#"
-                    className="glassmorphism px-6 py-2 rounded-full hover:bg-[rgb(var(--accent-neon))] hover:text-black transition-all"
-                  >
-                    CV PDF
-                  </a>
+                  <DownloadCVButton />
                 </div>
               </div>
             </div>
@@ -147,31 +143,33 @@ export default function CV() {
       </section>
 
       {/* Certifications */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
-            <Award className="text-[rgb(var(--accent-neon))]" />
-            Certifications
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {cvData.certifications.map((cert, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="glassmorphism p-6 rounded-xl hover:scale-105 transition-transform"
-              >
-                <h3 className="text-xl font-semibold mb-2">{cert.name}</h3>
-                <p className="text-sm text-gray-400 mb-4">{cert.issuer}</p>
-                <p className="text-[rgb(var(--accent-neon))] font-mono text-sm">
-                  {cert.date}
-                </p>
-              </motion.div>
-            ))}
+      {cvData.certifications.length > 0 && (
+        <section className="py-16 px-6">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold mb-12 flex items-center gap-3">
+              <Award className="text-[rgb(var(--accent-neon))]" />
+              Certifications
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {cvData.certifications.map((cert, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="glassmorphism p-6 rounded-xl hover:scale-105 transition-transform"
+                >
+                  <h3 className="text-xl font-semibold mb-2">{cert.name}</h3>
+                  <p className="text-sm text-gray-400 mb-4">{cert.issuer}</p>
+                  <p className="text-[rgb(var(--accent-neon))] font-mono text-sm">
+                    {cert.date}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   );
 }

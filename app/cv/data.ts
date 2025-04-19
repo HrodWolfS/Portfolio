@@ -8,21 +8,15 @@ export const cvData = {
     ],
     DevOps: [
       { name: "Git", level: 70 },
-      { name: "Kubernetes", level: 30, badge: "En cours" },
+      { name: "GitHub Actions", level: 40, badge: "En cours" },
+      { name: "Kubernetes", level: 10, badge: "Formation prévue" },
     ],
     Backend: [
-      { name: "Node.js", level: 50 },
-      { name: "Express", level: 45 },
-      { name: "Prisma", level: 40 },
+      { name: "Node.js", level: 30, badge: "En cours" },
+      { name: "Prisma", level: 20, badge: "En cours" },
     ],
-    Cloud: [
-      { name: "GCP", level: 45 },
-      { name: "Docker", level: 50 },
-    ],
-    Testing: [
-      { name: "Jest", level: 50 },
-      { name: "React Testing Library", level: 45 },
-    ],
+    Cloud: [{ name: "Docker", level: 10, badge: "Formation prévue" }],
+    Testing: [{ name: "React Testing Library", level: 45 }],
   },
   experience: [
     {
