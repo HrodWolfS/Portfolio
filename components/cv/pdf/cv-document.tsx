@@ -1,3 +1,5 @@
+"use client";
+
 import { cvData } from "@/app/cv/data";
 import {
   Document,
