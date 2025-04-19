@@ -46,7 +46,7 @@ export default function Home() {
         </motion.div>
 
         {/* Projet en cours – affiché sous le bloc principal */}
-        <div className="mt-16 text-center">
+        <div className="sm:mt-16 hidden sm:block text-center">
           <p className="text-lg text-gray-400 flex items-center justify-center gap-2 font-medium">
             <span className="animate-pulse text-2xl">⌨️</span>
             <span>

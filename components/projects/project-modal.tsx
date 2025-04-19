@@ -1,23 +1,23 @@
-"use client"
+"use client";
 
-import { useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { X, ArrowUpRight, Github } from 'lucide-react'
-import Image from 'next/image'
+import { motion } from "framer-motion";
+import { ArrowUpRight, Github, X } from "lucide-react";
+import Image from "next/image";
+import { useEffect } from "react";
 
 interface ProjectModalProps {
-  project: any
-  onClose: () => void
+  project: any;
+  onClose: () => void;
 }
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
   // Désactive le scroll du body quand le modal est ouvert
   useEffect(() => {
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [])
+      document.body.style.overflow = "unset";
+    };
+  }, []);
 
   return (
     <motion.div
@@ -32,7 +32,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glassmorphism rounded-2xl"
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Bouton fermer */}
         <button
@@ -45,7 +45,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         {/* Galerie d'images */}
         <div className="relative h-80">
           <Image
-            src={project.gallery[0]}
+            src={project.image}
             alt={project.title}
             layout="fill"
             objectFit="cover"
@@ -84,9 +84,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </span>
           </div>
 
-          <p className="text-gray-300 mb-8">
-            {project.longDescription}
-          </p>
+          <p className="text-gray-300 mb-8">{project.longDescription}</p>
 
           {/* Défis techniques */}
           <div className="mb-8">
@@ -103,7 +101,9 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           {/* Technologies */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">Technologies utilisées</h3>
+            <h3 className="text-xl font-semibold mb-4">
+              Technologies utilisées
+            </h3>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech: string, i: number) => (
                 <span
@@ -118,5 +118,5 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
       </motion.div>
     </motion.div>
-  )
+  );
 }

@@ -27,11 +27,11 @@ export const projectsData = [
   },
   {
     id: 2,
-    title: "2048 - Challenge Personnel",
+    title: "2048 - Challenge",
     description:
       "Reproduction du jeu 2048 dans un style simple mais fidèle à l'original.",
     longDescription:
-      "Ce projet est une réécriture du jeu 2048, codée à la main pour relever un défi personnel. Il respecte fidèlement les règles du jeu original tout en proposant une interface claire et minimaliste. Le but principal était de mieux comprendre la logique de déplacement des tuiles, les conditions de victoire et d'échec, et la manipulation de la grille dans le DOM. Le jeu est entièrement responsive et jouable sur mobile, avec des contrôles tactiles intuitifs.",
+      "Ce projet est une reproduction fidèle du jeu 2048, avec un focus particulier sur la fluidité des animations. L’un des principaux défis techniques a été de gérer l’apparition et la fusion des tuiles avec des transitions visuelles cohérentes et dynamiques. L’objectif était de reproduire le comportement du jeu original tout en optimisant les performances et la clarté de l’interface. Le jeu est entièrement responsive et jouable sur mobile, avec des contrôles tactiles intuitifs.",
     type: "Frontend",
     year: 2024,
     technologies: ["JavaScript", "HTML", "CSS"],
@@ -42,7 +42,7 @@ export const projectsData = [
       "Implémenter la logique exacte de fusion et de génération aléatoire",
       "Créer une UX fidèle avec peu de dépendances",
     ],
-    demoUrl: "https://2048-hrodwolf.vercel.app",
+    demoUrl: "https://2048-challenge-hrodwolfs-projects.vercel.app/",
     githubUrl: "https://github.com/HrodWolfS/2048-Challenge",
     featured: false,
     mobileFriendly: true,
