@@ -28,8 +28,8 @@ export function SkillBar({ skill }: SkillBarProps) {
               px-2 py-0.5 text-xs rounded-full font-medium
               ${
                 skill.badge === "En cours"
-                  ? "bg-yellow-500/20 text-yellow-300"
-                  : "bg-blue-500/20 text-blue-300"
+                  ? "bg-orange-400/30 text-orange-300 dark:bg-yellow-500/30 dark:text-yellow-300 border border-orange-400/50"
+                  : "bg-blue-400/30 text-blue-400 dark:bg-blue-500/30 dark:text-blue-300 border border-blue-400/50"
               }
             `}
             >
@@ -41,7 +41,7 @@ export function SkillBar({ skill }: SkillBarProps) {
           {skill.level}%
         </span>
       </div>
-      <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+      <div className="h-2 bg-white/10 dark:bg-white/5 rounded-full overflow-hidden">
         <motion.div
           className="h-full bg-[rgb(var(--accent-neon))] rounded-full"
           initial={{ width: 0 }}

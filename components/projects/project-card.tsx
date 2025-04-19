@@ -1,12 +1,13 @@
-"use client"
+"use client";
 
-import { motion } from 'framer-motion'
-import { ArrowUpRight, Github } from 'lucide-react'
-import Image from 'next/image'
+import { motion } from "framer-motion";
+import { Construction, Smartphone } from "lucide-react";
+import Image from "next/image";
+import { ProjectSkeleton } from "./project-skeleton";
 
 interface ProjectCardProps {
-  project: any
-  onClick: () => void
+  project: any;
+  onClick: () => void;
 }
 
 export function ProjectCard({ project, onClick }: ProjectCardProps) {
@@ -21,17 +22,37 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
       onClick={onClick}
     >
       <div className="relative overflow-hidden rounded-xl glassmorphism border border-white/10 hover:border-[rgb(var(--accent-neon))] transition-colors">
+        {/* Badges */}
+        <div className="absolute top-4 right-4 z-10 flex flex-col gap-2 items-end">
+          {project.wip && (
+            <div className="px-3 py-1 bg-[rgb(var(--accent-neon))] text-black text-xs font-medium rounded-full flex items-center gap-1">
+              <Construction size={14} />
+              En cours
+            </div>
+          )}
+          {project.mobileFriendly && (
+            <div className="px-3 py-1 bg-[rgb(var(--accent-neon))] text-black text-xs font-medium rounded-full flex items-center gap-1">
+              <Smartphone size={14} />
+              Mobile Friendly
+            </div>
+          )}
+        </div>
+
         {/* Image avec effet parallax */}
         <div className="relative h-48 overflow-hidden">
-          <div className="absolute inset-0 group-hover:scale-110 transition-transform duration-500">
-            <Image
-              src={project.image}
-              alt={project.title}
-              layout="fill"
-              objectFit="cover"
-              className="brightness-75 group-hover:brightness-100 transition-all"
-            />
-          </div>
+          {project.wip ? (
+            <ProjectSkeleton />
+          ) : (
+            <div className="absolute inset-0 group-hover:scale-110 transition-transform duration-500">
+              <Image
+                src={project.image}
+                alt={project.title}
+                layout="fill"
+                objectFit="cover"
+                className="brightness-75 group-hover:brightness-100 transition-all"
+              />
+            </div>
+          )}
         </div>
 
         {/* Contenu */}
@@ -45,9 +66,7 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
             </span>
           </div>
 
-          <p className="text-gray-400 text-sm mb-4">
-            {project.description}
-          </p>
+          <p className="text-gray-400 text-sm mb-4">{project.description}</p>
 
           {/* Technologies */}
           <div className="flex flex-wrap gap-2">
@@ -63,5 +82,5 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
         </div>
       </div>
     </motion.div>
-  )
+  );
 }

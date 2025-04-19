@@ -1,13 +1,16 @@
-import { CustomCursor } from "@/components/custom-cursor";
+import { Cursor } from "@/components/cursor";
 import { Navigation } from "@/components/navigation";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
 
+const inter = Inter({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
-  title: "Portfolio | Creative Developer",
-  description: "Portfolio minimaliste et futuriste",
+  title: "Portfolio - Rodolphe Stempfel",
+  description: "Portfolio de Rodolphe Stempfel, développeur web créatif",
 };
 
 export default function RootLayout({
@@ -17,20 +20,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body>
+      <body className={`${inter.className} grid-background`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
+          disableTransitionOnChange
         >
-          <div className="grain" />
-          <div className="grid-background">
-            <Navigation />
-            <CustomCursor />
-            <main className="min-h-screen">{children}</main>
-          </div>
+          <div className="grain"></div>
+          <Navigation />
+          {children}
+          <Toaster richColors />
+          <Cursor />
         </ThemeProvider>
-        <Toaster richColors />
       </body>
     </html>
   );

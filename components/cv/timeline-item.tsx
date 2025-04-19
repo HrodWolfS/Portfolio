@@ -90,7 +90,7 @@ export function TimelineItem({ data, type, index }: TimelineItemProps) {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.4 + i * 0.05 }}
-                className="px-3 py-1 bg-white/5 rounded-full text-xs"
+                className="px-3 py-1 dark:bg-white/10 bg-[rgb(var(--accent-neon))]/10 border border-[rgb(var(--accent-neon))]/20 text-xs dark:text-white text-gray-800 rounded-full font-medium"
               >
                 {tech}
               </motion.span>

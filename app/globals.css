@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -8,23 +8,19 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 10, 10, 10;
-  --accent-neon: 0, 255, 255;
+  --accent-neon: 31, 212, 197;
 }
 
 .light {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 250, 250, 250;
-  --accent-neon: 0, 200, 255;
+  --foreground-rgb: 41, 37, 36;
+  --background-start-rgb: 255, 251, 235;
+  --background-end-rgb: 254, 243, 199;
+  --accent-neon: 234, 88, 12;
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  
   body {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     @apply bg-background text-foreground;
     background: linear-gradient(
       to bottom,
@@ -33,6 +29,32 @@
     );
     min-height: 100vh;
   }
+
+  .light body {
+    background-color: rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+  }
+}
+
+/* Corrections pour le mode light uniquement */
+.light p.text-gray-400,
+.light p.text-gray-300,
+.light .text-gray-400 {
+  color: rgb(51, 47, 46);
+}
+
+.light input.bg-black\/20,
+.light textarea.bg-black\/20 {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(234, 88, 12, 0.2);
+}
+
+.light a.hover\:text-white:hover {
+  color: black !important;
+}
+
+.light .text-white {
+  color: rgb(41, 37, 36);
 }
 
 .grain {
@@ -42,43 +64,93 @@
   height: 100vh;
   width: 100vw;
   pointer-events: none;
+}
+
+.light .grain {
+  opacity: 0.2;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 2000 2000' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.dark .grain {
   opacity: 0.05;
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 2000 2000' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 .grid-background {
   background-size: 50px 50px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+}
+
+.light .grid-background {
+  background-image: linear-gradient(
+      to right,
+      rgba(194, 65, 12, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(194, 65, 12, 0.05) 1px, transparent 1px);
+}
+
+.dark .grid-background {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
 
 .glassmorphism {
-  @apply bg-black bg-opacity-20 backdrop-blur-lg border border-white/10 rounded-xl;
+  @apply backdrop-blur-lg rounded-xl;
 }
 
-.neon-glow {
-  text-shadow: 0 0 10px rgba(var(--accent-neon), 0.5),
-               0 0 20px rgba(var(--accent-neon), 0.3),
-               0 0 30px rgba(var(--accent-neon), 0.1);
+.light .glassmorphism {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 250, 230, 0.8);
+  box-shadow: 0 4px 12px -2px rgba(234, 88, 12, 0.15),
+    0 2px 6px -1px rgba(234, 88, 12, 0.1),
+    inset 0 0 0 1px rgba(255, 250, 230, 0.7);
 }
 
-@keyframes cursor-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.dark .glassmorphism {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(31, 212, 197, 0.1);
+  box-shadow: 0 0 10px rgba(31, 212, 197, 0.05);
 }
 
-.custom-cursor {
-  @apply fixed w-8 h-8 pointer-events-none mix-blend-difference z-50;
-  border: 2px solid rgb(var(--accent-neon));
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, border-color 0.2s;
+.dark .neon-glow {
+  text-shadow: 0 0 10px rgba(31, 212, 197, 0.5),
+    0 0 20px rgba(31, 212, 197, 0.3), 0 0 30px rgba(31, 212, 197, 0.1);
 }
 
-.custom-cursor.hover {
-  @apply w-12 h-12;
-  border-color: rgb(var(--accent-neon));
+.light .neon-glow {
+  color: rgb(var(--accent-neon));
+  font-weight: 600;
+}
+
+/* Barre de progression */
+.progress-bar {
+  @apply relative h-2 rounded-full overflow-hidden;
+}
+
+.light .progress-bar {
+  background: rgba(254, 215, 170, 0.5);
+}
+
+.dark .progress-bar {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar-fill {
+  @apply absolute top-0 left-0 h-full rounded-full;
+}
+
+.light .progress-bar-fill {
+  background: linear-gradient(90deg, rgb(249, 115, 22), rgb(234, 88, 12));
+  box-shadow: 0 0 10px rgba(234, 88, 12, 0.5);
+}
+
+.dark .progress-bar-fill {
+  background: linear-gradient(90deg, rgb(31, 212, 197), rgb(20, 184, 166));
+  box-shadow: 0 0 10px rgba(31, 212, 197, 0.5);
 }
 
 @layer utilities {

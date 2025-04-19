@@ -46,9 +46,11 @@ export default function CV() {
                   </span>
                 </h1>
                 <p className="text-lg text-gray-400 mb-6 max-w-2xl">
-                  Passionné par la création d'expériences web innovantes et
-                  performantes. Spécialisé en React, Node.js et architecture
-                  cloud.
+                  Ancien technicien télécom, aujourd’hui développeur web en
+                  reconversion. Mes projets évoluent sans cesse, parce que je
+                  préfère être jugé sur un produit imparfait que sur une idée
+                  jamais lancée. Ce que je code aujourd’hui me prépare à ce que
+                  je créerai demain.
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                   <a
