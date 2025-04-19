@@ -1,3 +1,33 @@
+interface Certification {
+  name: string;
+  issuer: string;
+  date: string;
+}
+
+interface Skill {
+  name: string;
+  level: number;
+  badge?: string;
+}
+
+interface Experience {
+  title: string;
+  company: string;
+  period: string;
+  logo: string;
+  description: string;
+  achievements: string[];
+  technologies: string[];
+}
+
+interface Education {
+  degree: string;
+  school: string;
+  period: string;
+  logo: string;
+  description: string;
+}
+
 export const cvData = {
   skills: {
     Frontend: [
@@ -58,7 +88,7 @@ export const cvData = {
       period: "01/2017 – 08/2017",
       logo: "/images/circet.jpeg",
       description:
-        "Planification et coordination des travaux pour la région Nord-Est ; réalisation des devis.",
+        "Planification et coordination des travaux pour la région Nord-Est ; réalisation des devis.",
       achievements: [
         "Réunions hebdomadaires avec les équipes pour améliorer la satisfaction et la productivité",
         "Visites de site pour lancer de nouveaux chantiers",
@@ -189,5 +219,5 @@ export const cvData = {
         "Fondamentaux de l'électronique : composants, schémas et maintenance de systèmes.",
     },
   ],
-  certifications: [],
+  certifications: [] as Certification[],
 };
