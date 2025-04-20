@@ -5,6 +5,7 @@ import { Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Mascot } from "./mascot";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,9 +48,12 @@ export function Navigation() {
   return (
     <nav className="fixed w-full z-50 px-6 py-4">
       <div className="max-w-7xl mx-auto flex justify-between items-center glassmorphism px-6 py-3">
-        <Link href="/" className="text-xl font-bold neon-glow">
-          Portfolio
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link href="/" className="text-xl font-bold neon-glow">
+            Portfolio
+          </Link>
+          <Mascot />
+        </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">

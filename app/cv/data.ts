@@ -7,26 +7,83 @@ interface Certification {
 interface Skill {
   name: string;
   level: number;
-  badge?: string;
+}
+
+interface SkillCategories {
+  frontend: Skill[];
+  backend: Skill[];
+  devops: Skill[];
 }
 
 interface Experience {
   title: string;
-  company: string;
-  period: string;
-  logo: string;
+  startDate: string;
+  endDate: string;
   description: string;
-  achievements: string[];
-  technologies: string[];
 }
 
 interface Education {
-  degree: string;
+  title: string;
+  date: string;
   school: string;
-  period: string;
-  logo: string;
-  description: string;
 }
+
+export const skills: SkillCategories = {
+  frontend: [
+    { name: "React", level: 80 },
+    { name: "Next.js", level: 75 },
+    { name: "Tailwind CSS", level: 85 },
+  ],
+  backend: [
+    { name: "Node.js", level: 70 },
+    { name: "Prisma", level: 65 },
+  ],
+  devops: [
+    { name: "GitHub Actions", level: 60 },
+    { name: "Docker", level: 55 },
+  ],
+};
+
+export const education: Education[] = [
+  {
+    title: "Formation Web Designer",
+    date: "2020",
+    school: "Codelynx",
+  },
+  {
+    title: "Formation Marketing Digital",
+    date: "2019",
+    school: "Codelynx",
+  },
+  {
+    title: "Formation technicien réseaux et télécoms",
+    date: "2014",
+    school: "BTS Systemes.electroniques",
+  },
+];
+
+export const experiences: Experience[] = [
+  {
+    title: "Technicien Telecom",
+    startDate: "08/2020",
+    endDate: "05/2023",
+    description:
+      "Implémentation reseaux re fargest WDM links. Création et migration de lem",
+  },
+  {
+    title: "Chef de Chantier",
+    startDate: "03/2015",
+    endDate: "12/2015",
+    description:
+      "Supportement des autro a imation du riveau et l' Ma lhroalien du Codule engge",
+  },
+  {
+    title: "Circet.UPR NORD-EST",
+    startDate: "07/2014",
+    endDate: "02/2015",
+    description: "Installation de-Lection siuicurv d'échéc",
+  },
+];
 
 export const cvData = {
   skills: {

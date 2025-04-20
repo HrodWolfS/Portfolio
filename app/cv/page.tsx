@@ -46,21 +46,25 @@ export default function CV() {
                   </span>
                 </h1>
                 <p className="text-lg text-gray-400 mb-6 max-w-2xl">
-                  Ancien technicien télécom, aujourd’hui développeur web en
+                  Ancien technicien télécom, aujourd'hui développeur web en
                   reconversion. Mes projets évoluent sans cesse, parce que je
                   préfère être jugé sur un produit imparfait que sur une idée
-                  jamais lancée. Ce que je code aujourd’hui me prépare à ce que
+                  jamais lancée. Ce que je code aujourd'hui me prépare à ce que
                   je créerai demain.
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                   <a
-                    href="www.linkedin.com/in/rodolphe-s-ba6a7a232"
+                    href="https://www.linkedin.com/in/rodolphe-s-ba6a7a232"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="glassmorphism px-6 py-2 rounded-full hover:bg-[rgb(var(--accent-neon))] hover:text-black transition-all"
                   >
                     LinkedIn
                   </a>
                   <a
                     href="https://github.com/HrodWolfS"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="glassmorphism px-6 py-2 rounded-full hover:bg-[rgb(var(--accent-neon))] hover:text-black transition-all"
                   >
                     GitHub
