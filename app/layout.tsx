@@ -1,6 +1,7 @@
 import { Cursor } from "@/components/cursor";
 import { Navigation } from "@/components/navigation";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
@@ -32,6 +33,7 @@ export default function RootLayout({
           {children}
           <Toaster richColors />
           <Cursor />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

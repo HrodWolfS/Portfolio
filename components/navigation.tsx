@@ -1,26 +1,27 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { useTheme } from 'next-themes'
-import { Moon, Sun, Menu, X } from 'lucide-react'
-import Link from 'next/link'
+import { motion } from "framer-motion";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { useTheme } from "next-themes";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   const menuItems = [
-    { href: '/', label: 'Accueil' },
-    { href: '/projets', label: 'Projets' },
-    { href: '/cv', label: 'CV' },
-    { href: '/contact', label: 'Contact' },
-  ]
+    { href: "/", label: "Accueil" },
+    { href: "/projets", label: "Projets" },
+    { href: "/a-propos", label: "À propos" },
+    { href: "/cv", label: "Mon CV" },
+    { href: "/contact", label: "Contact" },
+  ];
 
   const menuVariants = {
     open: {
@@ -29,7 +30,7 @@ export function Navigation() {
       transition: {
         type: "spring",
         stiffness: 100,
-      }
+      },
     },
     closed: {
       opacity: 0,
@@ -37,11 +38,11 @@ export function Navigation() {
       transition: {
         type: "spring",
         stiffness: 100,
-      }
-    }
-  }
+      },
+    },
+  };
 
-  if (!mounted) return null
+  if (!mounted) return null;
 
   return (
     <nav className="fixed w-full z-50 px-6 py-4">
@@ -62,18 +63,15 @@ export function Navigation() {
             </Link>
           ))}
           <button
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="p-2 rounded-full hover:bg-white/10 transition-colors"
           >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
           </button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -97,10 +95,10 @@ export function Navigation() {
             </Link>
           ))}
           <button
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             className="flex items-center space-x-2 hover:text-[rgb(var(--accent-neon))] transition-colors"
           >
-            {theme === 'dark' ? (
+            {theme === "dark" ? (
               <>
                 <Sun size={20} />
                 <span>Mode clair</span>
@@ -115,5 +113,5 @@ export function Navigation() {
         </div>
       </motion.div>
     </nav>
-  )
+  );
 }
