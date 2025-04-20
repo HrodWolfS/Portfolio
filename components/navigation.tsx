@@ -43,7 +43,21 @@ export function Navigation() {
     },
   };
 
-  if (!mounted) return null;
+  // Rendu initial pour éviter les problèmes d'hydratation
+  const initialNav = (
+    <nav className="fixed w-full z-50 px-6 py-4">
+      <div className="max-w-7xl mx-auto flex justify-between items-center glassmorphism px-6 py-3">
+        <div className="flex items-center gap-2">
+          <Link href="/" className="text-xl font-bold neon-glow">
+            Portfolio
+          </Link>
+          <Mascot />
+        </div>
+      </div>
+    </nav>
+  );
+
+  if (!mounted) return initialNav;
 
   return (
     <nav className="fixed w-full z-50 px-6 py-4">

@@ -2,6 +2,7 @@
 
 import { Navigation } from "@/components/navigation";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "sonner";
 
 export function RootLayoutClient({ children }: { children: React.ReactNode }) {
   return (
@@ -13,6 +14,7 @@ export function RootLayoutClient({ children }: { children: React.ReactNode }) {
     >
       <Navigation />
       {children}
+      <Toaster richColors theme="dark" />
     </ThemeProvider>
   );
 }
