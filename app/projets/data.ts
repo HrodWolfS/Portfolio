@@ -49,6 +49,28 @@ export const projectsData = [
   },
   {
     id: 3,
+    title: "Projet Cotisations Sociales",
+    description:
+      "Calcule ton salaire net automatiquement, en tenant compte de ton statut et des taux à jour.",
+    longDescription:
+      "Ce projet vise à fournir un outil fiable et à jour pour calculer son salaire net en fonction de son salaire brut. Il intègre un système de scraping pour récupérer automatiquement les taux en vigueur, ainsi qu'une interface utilisateur claire pour faciliter les calculs. L'automatisation des tests et des déploiements est également un aspect clé du projet.",
+    type: "Frontend",
+    year: 2025,
+    technologies: ["React", "TypeScript", "GitHub Actions"],
+    image: "/images/dubrutaunet.png",
+    gallery: [],
+    challenges: [
+      "Écrire un script de scraping pour mettre à jour automatiquement les taux de cotisations",
+      "Configurer GitHub Actions pour automatiser les tests et les déploiements",
+      "Mettre en place des tests pour la première fois afin d'assurer la stabilité du code",
+    ],
+    demoUrl: "https://dubrutaunet.fr",
+    githubUrl: "https://github.com/HrodWolfS/DuBrutAuNet",
+    featured: false,
+    mobileFriendly: true,
+  },
+  {
+    id: 4,
     title: "Les Petites Histoires – Générateur d'Aventures Personnalisées",
     description:
       "Projet en cours de développement : générer des histoires pour enfants personnalisées avec le prénom du héros, un thème et une morale.",
