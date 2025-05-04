@@ -20,9 +20,12 @@ export default function Contact() {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<ContactForm>();
-  const [previewMode, setPreviewMode] = useState(false);
+  const [isSubmittingForm, setIsSubmittingForm] = useState(false);
 
   const onSubmit = async (data: ContactForm) => {
+    // Définir l'état de soumission à true pour désactiver le bouton
+    setIsSubmittingForm(true);
+
     // Afficher un toast de chargement
     const loadingToast = toast.loading("Envoi en cours...");
 
@@ -51,10 +54,13 @@ export default function Contact() {
     } catch (error) {
       // Supprimer le toast de chargement et afficher l'erreur
       toast.dismiss(loadingToast);
-      toast.error("Une erreur s'est produite lors de l'envoi 😕", {
+      toast.error("Une erreur s&apos;est produite lors de l&apos;envoi 😕", {
         duration: 3000,
         position: "bottom-right",
       });
+    } finally {
+      // Réinitialiser l'état de soumission quel que soit le résultat
+      setIsSubmittingForm(false);
     }
   };
 
@@ -151,10 +157,10 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-3 bg-[rgb(var(--accent-neon))] text-black font-medium rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                  disabled={isSubmitting || isSubmittingForm}
+                  className="w-full py-3 bg-[rgb(var(--accent-neon))] text-black font-medium rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? (
+                  {isSubmitting || isSubmittingForm ? (
                     <div className="w-6 h-6 border-2 border-black border-t-transparent rounded-full animate-spin" />
                   ) : (
                     <>
