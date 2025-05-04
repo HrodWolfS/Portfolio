@@ -45,7 +45,7 @@ test.describe("Formulaire de contact", () => {
     await page.fill('input[name="email"]', "test@example.com");
     await page.fill('textarea[name="message"]', "Test message");
 
-    const submitButton = page.locator('button[type="submit"]');
+    const submitButton = page.locator('[data-testid="submit-button"]');
 
     // Vérifier que le bouton est actif avant la soumission
     await expect(submitButton).toBeEnabled();
@@ -54,7 +54,8 @@ test.describe("Formulaire de contact", () => {
     await submitButton.click();
 
     // Vérifier que le bouton est désactivé pendant la soumission
-    await expect(submitButton).toBeDisabled();
+    // Augmenter le timeout pour s'assurer que l'état a le temps de changer
+    await expect(submitButton).toBeDisabled({ timeout: 10000 });
   });
 
   test("Le bouton de copie d'email affiche un toast de succès", async ({

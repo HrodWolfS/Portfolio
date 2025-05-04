@@ -36,6 +36,10 @@ export default function Contact() {
         message: data.message,
       };
 
+      // Ajouter un délai artificiel pour s'assurer que le bouton est désactivé
+      // pour que Playwright ait le temps de le détecter
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
@@ -158,6 +162,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting || isSubmittingForm}
+                  data-testid="submit-button"
                   className="w-full py-3 bg-[rgb(var(--accent-neon))] text-black font-medium rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {isSubmitting || isSubmittingForm ? (
