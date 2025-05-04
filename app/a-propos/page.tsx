@@ -42,11 +42,11 @@ export default function About() {
               véritable passion qui a toujours été présente en moi.
             </p>
             <p>
-              J’ai eu la chance, dans les télécoms, de naviguer entre le terrain
+              J'ai eu la chance, dans les télécoms, de naviguer entre le terrain
               et les bureaux : des chantiers techniques aux réunions de suivi
-              client. Cette double exposition m’a appris à gérer toutes sortes
+              client. Cette double exposition m'a appris à gérer toutes sortes
               de problèmes, à dialoguer avec des profils très différents, et à
-              m’adapter à une multitude de méthodes de travail. J’en tire une
+              m'adapter à une multitude de méthodes de travail. J'en tire une
               vraie agilité professionnelle et une solide tolérance au chaos.
             </p>
 
@@ -58,11 +58,11 @@ export default function About() {
             </p>
 
             <p>
-              Ce qui me pousse aujourd’hui dans le développement web, c’est
-              cette même passion pour la création. J’ai toujours aimé donner vie
+              Ce qui me pousse aujourd'hui dans le développement web, c'est
+              cette même passion pour la création. J'ai toujours aimé donner vie
               à mes idées — que ce soit en électronique, en bricolage ou
-              maintenant en code. J’aime passer de l’idée à l’exécution, avoir à
-              la fois la vision et les mains dedans. C’est ce mélange qui me
+              maintenant en code. J'aime passer de l'idée à l'exécution, avoir à
+              la fois la vision et les mains dedans. C'est ce mélange qui me
               fait vibrer.
             </p>
 
@@ -76,12 +76,12 @@ export default function About() {
             <p>
               Mon objectif ? Continuer de créer des applications utiles,
               apprendre sans relâche, et un jour pouvoir transmettre à mon tour
-              ce que j’aurai appris.
+              ce que j'aurai appris.
             </p>
             <p>
-              Le code, pour moi, ce n’est pas juste un job. C’est une manière de
-              transformer les idées en choses concrètes. Et j’ai encore beaucoup
-              d’idées.
+              Le code, pour moi, ce n'est pas juste un job. C'est une manière de
+              transformer les idées en choses concrètes. Et j'ai encore beaucoup
+              d'idées.
             </p>
           </div>
         </motion.div>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap } from "lucide-react";
+import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
 interface TimelineItemProps {
@@ -34,17 +35,19 @@ export function TimelineItem({ data, type, index }: TimelineItemProps) {
       <div className="glassmorphism p-6 rounded-xl hover:scale-[1.02] transition-transform">
         <div className="flex items-start gap-4 mb-4">
           {data.logo ? (
-            <img
+            <Image
               src={data.logo}
               alt={type === "experience" ? data.company : data.school}
+              width={48}
+              height={48}
               className="w-12 h-12 rounded-full object-cover bg-white/10"
             />
           ) : (
             <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center">
               {type === "experience" ? (
-                <Briefcase size={24} />
+                <Briefcase className="w-6 h-6" />
               ) : (
-                <GraduationCap size={24} />
+                <GraduationCap className="w-6 h-6" />
               )}
             </div>
           )}

@@ -1,11 +1,11 @@
 "use client";
 
-import { ParticlesBackground } from "@/components/cv/particles-background";
 import { DownloadCVButton } from "@/components/cv/pdf/download-cv-button";
 import { SkillBar } from "@/components/cv/skill-bar";
 import { TimelineItem } from "@/components/cv/timeline-item";
 import { motion } from "framer-motion";
 import { Award, Briefcase, Code2, GraduationCap } from "lucide-react";
+import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { cvData } from "./data";
 
@@ -17,8 +17,6 @@ export default function CV() {
 
   return (
     <div className="min-h-screen w-full relative overflow-hidden">
-      <ParticlesBackground />
-
       {/* En-tête */}
       <motion.header
         ref={headerRef}
@@ -31,9 +29,11 @@ export default function CV() {
           <div className="glassmorphism p-8 md:p-12 rounded-2xl">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-2 border-[rgb(var(--accent-neon))]">
-                <img
+                <Image
                   src="/images/moi.jpeg"
                   alt="Profile"
+                  width={128}
+                  height={128}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -46,11 +46,11 @@ export default function CV() {
                   </span>
                 </h1>
                 <p className="text-lg text-gray-400 mb-6 max-w-2xl">
-                  Ancien technicien télécom, aujourd'hui développeur web en
+                  Ancien technicien télécom, aujourd&apos;hui développeur web en
                   reconversion. Mes projets évoluent sans cesse, parce que je
                   préfère être jugé sur un produit imparfait que sur une idée
-                  jamais lancée. Ce que je code aujourd'hui me prépare à ce que
-                  je créerai demain.
+                  jamais lancée. Ce que je code aujourd&apos;hui me prépare à ce
+                  que je créerai demain.
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                   <a

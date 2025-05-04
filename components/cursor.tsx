@@ -3,18 +3,18 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
+const ICONS = [
+  "/images/mac-cursor.png",
+  "/images/lightsaber.png",
+  "/images/basketball.png",
+  "/images/bike.png",
+] as const;
+
 export function Cursor() {
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [cursorIndex, setCursorIndex] = useState(0);
   const clickCount = useRef(0);
   const timeoutRef = useRef<NodeJS.Timeout>();
-
-  const icons = [
-    "/images/mac-cursor.png",
-    "/images/lightsaber.png",
-    "/images/basketball.png",
-    "/images/bike.png",
-  ];
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -29,7 +29,7 @@ export function Cursor() {
       clickCount.current++;
 
       if (clickCount.current === 3) {
-        setCursorIndex((prev) => (prev + 1) % icons.length);
+        setCursorIndex((prev) => (prev + 1) % ICONS.length);
         clickCount.current = 0;
       }
 
@@ -50,6 +50,14 @@ export function Cursor() {
     };
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCursorIndex((prev) => (prev + 1) % ICONS.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <motion.div
       className="fixed top-0 left-0 pointer-events-none z-[9999]"
@@ -57,7 +65,7 @@ export function Cursor() {
       transition={{ type: "spring", damping: 30, stiffness: 200 }}
     >
       <motion.img
-        src={icons[cursorIndex]}
+        src={ICONS[cursorIndex]}
         alt="cursor"
         className="w-12 h-12 rounded-xl object-cover"
         initial={{ scale: 0.8, rotate: -180 }}

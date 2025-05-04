@@ -204,7 +204,7 @@ export const cvData = {
         "Formation intensive Next.js : concepts de routage, SSR/SSG, API Routes, orchestration avec Prisma et déploiement sur Vercel. Et apprentissage de TypeScript.",
     },
     {
-      degree: "Formation React",
+      degree: "Formation React Avancée",
       school: "CodeLynx",
       period: "2024",
       logo: "/images/codelynx.jpeg",
@@ -212,7 +212,7 @@ export const cvData = {
         "Approfondissement React : création de composants fonctionnels, JSX, props, state, hooks (useState, useEffect), gestion du cycle de vie, React Router, Context API et tests unitaires avec Jest.",
     },
     {
-      degree: "Formation Javascript",
+      degree: "Formation Javascript avancée",
       school: "CodeLynx",
       period: "2024",
       logo: "/images/codelynx.jpeg",
@@ -220,7 +220,7 @@ export const cvData = {
         "Amelioration des connaissances de JavaScript : variables, types, structures de contrôle, fonctions, ES6+ (let/const, arrow functions, modules), manipulation du DOM, gestion des promesses, async/await et utilisation de l'API Fetch.",
     },
     {
-      degree: "Formation React",
+      degree: "Formation React Fondamentaux",
       school: "Dyma",
       period: "2023",
       logo: "/images/dyma.jpeg",

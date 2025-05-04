@@ -19,22 +19,23 @@
 }
 
 @layer base {
-  body {
+  body,
+  .min-h-screen {
     font-family: "Space Grotesk", sans-serif;
-    @apply bg-background text-foreground;
-    background: linear-gradient(
-      to bottom,
-      rgb(var(--background-start-rgb)),
-      rgb(var(--background-end-rgb))
-    );
+    @apply text-foreground;
     min-height: 100vh;
   }
 
+  .dark body {
+    color: rgb(var(--foreground-rgb));
+  }
+
   .light body {
-    background-color: rgb(var(--background-start-rgb));
     color: rgb(var(--foreground-rgb));
   }
 }
+
+/* Suppression des styles pour les fonds qui pourraient interférer */
 
 /* Corrections pour le mode light uniquement */
 .light p.text-gray-400,

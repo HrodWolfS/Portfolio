@@ -107,7 +107,7 @@ export function CVDocument() {
           <Text style={styles.name}>Rodolphe Stempfel</Text>
           <Text style={styles.title}>Développeur Junior</Text>
           <Text style={styles.description}>
-            Ancien technicien télécom, aujourd'hui développeur web en
+            Ancien technicien télécom, aujourd&apos;hui développeur web en
             reconversion. Mes projets évoluent sans cesse, parce que je préfère
             être jugé sur un produit imparfait que sur une idée jamais lancée.
           </Text>
@@ -178,6 +178,15 @@ export function CVDocument() {
 
         {/* Contact */}
         <Text style={styles.contact}>stempfel.rodolphe@gmail.com</Text>
+
+        <Text style={styles.description}>
+          Je suis actuellement en formation chez OpenClassrooms pour obtenir le
+          titre professionnel de Développeur Web.
+        </Text>
+        <Text style={styles.description}>
+          Cette formation me permet d&apos;acquérir les compétences nécessaires
+          pour devenir un développeur web professionnel.
+        </Text>
       </Page>
     </Document>
   );

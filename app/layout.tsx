@@ -1,4 +1,5 @@
 import { RootLayoutClient } from "@/components/root-layout-client";
+import { BackgroundSwitcher } from "@/components/ui/background-switcher";
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -26,8 +27,11 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <body className={inter.className}>
-        <RootLayoutClient>{children}</RootLayoutClient>
-        <Analytics />
+        <RootLayoutClient>
+          <BackgroundSwitcher />
+          <div className="relative z-20">{children}</div>
+          <Analytics />
+        </RootLayoutClient>
       </body>
     </html>
   );

@@ -1,6 +1,5 @@
 "use client";
 
-import { ParticlesBackground } from "@/components/cv/particles-background";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { Copy, Github, Linkedin, Send } from "lucide-react";
@@ -66,8 +65,6 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen w-full relative">
-      <ParticlesBackground />
-
       <div className="pt-32 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
           {/* En-tête */}
@@ -85,7 +82,8 @@ export default function Contact() {
               </span>
             </h1>
             <p className="text-lg text-gray-400">
-              Une idée en tête ? N'hésitez pas à me contacter pour en discuter.
+              Une idée en tête ? N&apos;hésitez pas à me contacter pour en
+              discuter.
             </p>
           </motion.div>
 

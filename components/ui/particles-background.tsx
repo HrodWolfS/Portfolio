@@ -35,7 +35,6 @@ export function ParticlesBackground() {
       opacity: number;
 
       constructor() {
-        // Si on est ici, canvas existe forcément (vérifié dans l'useEffect)
         this.x = Math.random() * (canvas?.width ?? window.innerWidth);
         this.y = Math.random() * (canvas?.height ?? window.innerHeight);
         this.size = Math.random() * 2;
@@ -92,7 +91,7 @@ export function ParticlesBackground() {
   return (
     <motion.canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none"
+      className="fixed inset-0 pointer-events-none z-10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
