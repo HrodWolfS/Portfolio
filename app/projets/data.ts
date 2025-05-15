@@ -6,7 +6,7 @@ export const projectsData = [
       "Application ludique pour apprendre les tables de multiplication destinée aux enfants.",
     longDescription:
       "MultiTab est une application pédagogique conçue pour aider les enfants à apprendre les tables de multiplication. Elle propose deux modes : un mode classique pour s'entraîner et un mode aventure plus interactif. Le système de progression débloque les tables une à une, un tableau de statistiques permet de suivre les progrès, et des badges récompensent les efforts. Chaque profil est stocké dans le localStorage pour un suivi personnalisé.",
-    type: "Fullstack",
+    type: "Frontend",
     year: 2024,
     technologies: ["React", "Next.js", "Tailwind CSS", "localStorage"],
     image: "/images/multitab.png",
@@ -71,25 +71,47 @@ export const projectsData = [
   },
   {
     id: 4,
-    title: "Les Petites Histoires – Générateur d'Aventures Personnalisées",
+    title: "Mon Histoire à moi – Générateur d'Aventures Personnalisées",
     description:
-      "Projet en cours de développement : générer des histoires pour enfants personnalisées avec le prénom du héros, un thème et une morale.",
+      "Crée des histoires magiques pour enfants en personnalisant le prénom, le thème et la morale.",
     longDescription:
-      "Cette application permet aux enfants (ou aux parents) de créer des histoires uniques en renseignant quelques paramètres simples : le prénom du héros, un thème d'aventure (pirate, forêt magique, espace, etc.), et une morale à transmettre. Le but est d'éduquer tout en amusant. Le contenu est généré dynamiquement par une IA. À terme, une narration vocale et une interface gamifiée sont prévues.",
+      "Cette application permet aux enfants (ou aux parents) de créer des histoires personnalisées en quelques clics. L’utilisateur choisit un prénom, un âge, une émotion, un thème et une morale. Le texte est généré dynamiquement via l’API d’OpenAI, accompagné d’une narration audio. Aucune inscription, aucun abonnement, aucun compte à créer. Il suffit d’entrer sa propre clé OpenAI (stockée localement) pour utiliser l’application en toute autonomie. Cette version publique est pensée comme un terrain de jeu pour tester l’idée sans contrainte ni backend.",
     type: "Fullstack",
     year: 2025,
     technologies: ["React", "Next.js", "OpenAI API", "Tailwind CSS"],
-    image: "/images/placeholder.png",
+    image: "/images/mham.png",
     gallery: [],
     challenges: [
       "Créer des prompts fiables et adaptés à un jeune public",
       "Permettre une personnalisation fluide sans complexité d'interface",
       "Prévoir une narration vocale ou des illustrations générées à terme",
     ],
+    demoUrl: "https://mon-histoires-a-moi.vercel.app",
+    githubUrl: "https://github.com/HrodWolfS/mon-histoires-a-moi",
+    featured: false,
+    mobileFriendly: true,
+  },
+  {
+    id: 5,
+    title: "TechnoGorafi – Le Blog Satirique de la Tech",
+    description:
+      "Blog parodique dans l’univers tech, façon Gorafi, pour mêler humour et code.",
+    longDescription:
+      "TechnoGorafi est un blog satirique qui détourne les codes du journalisme tech pour proposer des articles absurdes, ironiques mais toujours bien codés. Le but est de mêler humour et développement en publiant de faux articles comme : « OpenAI offre une remise si vous arrêtez de dire merci », ou « Un développeur junior affirme n’avoir jamais codé de todo list ». Ce projet montre mes compétences techniques sur un vrai CMS personnalisé, tout en affichant une facette créative et décalée.",
+    type: "Fullstack",
+    year: 2025,
+    technologies: ["Next.js", "TypeScript", "Prisma", "Tailwind CSS"],
+    image: "/images/placeholder.png",
+    gallery: [],
+    challenges: [
+      "Créer une interface de publication simple mais puissante",
+      "Maintenir une structure SEO-friendly malgré le contenu absurde",
+      "Allier satire et qualité technique dans un même produit",
+    ],
     demoUrl: "",
     githubUrl: "",
     featured: false,
-    wip: true,
     mobileFriendly: true,
+    wip: true,
   },
 ];

@@ -1,6 +1,5 @@
 "use client";
 
-
 import { FilterButton } from "@/components/projects/filter-button";
 import { ProjectCard } from "@/components/projects/project-card";
 import { ProjectModal } from "@/components/projects/project-modal";
@@ -21,17 +20,19 @@ export default function Projects() {
     new Set(projectsData.map((project) => project.year))
   );
 
-  const filteredProjects = projectsData.filter((project) => {
-    const matchesType = !selectedType || project.type === selectedType;
-    const matchesSearch =
-      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesType && matchesSearch;
-  });
+  const filteredProjects = projectsData
+    .slice()
+    .sort((a, b) => b.id - a.id)
+    .filter((project) => {
+      const matchesType = !selectedType || project.type === selectedType;
+      const matchesSearch =
+        project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        project.description.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesType && matchesSearch;
+    });
 
   return (
     <div className="min-h-screen pt-32 px-6 pb-16">
-
       <div className="max-w-7xl mx-auto">
         {/* En-tête et filtres */}
         <div className="mb-12">
